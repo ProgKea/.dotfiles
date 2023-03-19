@@ -16,7 +16,8 @@ twitch https://www.twitch.tv/search?term=
 stackoverflow https://stackoverflow.com/search?q=
 quora https://www.quora.com/search?q=
 amazon https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=
-ebay https://www.ebay.com/sch/i.html?_nkw=
+ebayen https://www.ebay.com/sch/i.html?_nkw=
+ebayde https://www.ebay.de/sch/i.html?_nkw=
 puffyan https://vid.puffyan.us/search?q=
 spriters-resource https://www.spriters-resource.com/search/?q=
 MDN https://developer.mozilla.org/en-US/search?q=
