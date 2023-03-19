@@ -335,10 +335,10 @@
 
 (use-package dired
   :ensure nil
-  :init
-  (add-to-list 'dired-guess-shell-alist-user '("\\.pdf\\'" "zathura"))
-  (add-to-list 'dired-guess-shell-alist-user '("\\.png\\'" "sxiv"))
-  (add-to-list 'dired-guess-shell-alist-user '("\\.jpe?g\\'" "sxiv"))
+  ;; :init
+  ;; (add-to-list 'dired-guess-shell-alist-user '("\\.pdf\\'" "zathura"))
+  ;; (add-to-list 'dired-guess-shell-alist-user '("\\.png\\'" "sxiv"))
+  ;; (add-to-list 'dired-guess-shell-alist-user '("\\.jpe?g\\'" "sxiv"))
   :config
   (add-hook #'dired-mode-hook #'auto-revert-mode)
   (evil-define-key 'normal dired-mode-map "r" #'revert-buffer)
@@ -378,6 +378,7 @@
                 c-default-style '((java-mode . "java")
                                   (awk-mode . "awk")
                                   (other . "bsd"))))
+(use-package nix-mode)
 (use-package python-mode
   :ensure nil
   :hook
@@ -426,12 +427,6 @@
   :config
   (load-theme 'gruber-darker t))
 (set-frame-font "Ubuntu Mono-19" nil t)
-
-;; TAGS
-(defun create-tags()
-  (interactive)
-  "Create tags file."
-  (async-shell-command "find . -name \"*.c\" -print -or -name \"*.h\" -print | xargs -I% etags --append %"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

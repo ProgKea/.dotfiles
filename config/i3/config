@@ -19,12 +19,12 @@ set $refresh_i3status killall -SIGUSR1 i3status
 # bindsym $mod+F6 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 # bindsym $mod+F5 exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-bindsym $mod+F8 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && $refresh_i3status
-bindsym $mod+F7 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && $refresh_i3status
-bindsym $mod+F6 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym $mod+F5 exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym $mod+F8 exec --no-startup-id amixer -q sset Master 1%+ && $refresh_i3status
+bindsym $mod+F7 exec --no-startup-id amixer -q sset Master 1%- && $refresh_i3status
+bindsym $mod+F6 exec --no-startup-id amixer -q sset Master toggle && $refresh_i3status
+# bindsym $mod+F5 exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-exec 'sudo brightnessctl set 40%'
+exec 'brightnessctl set 60%'
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -157,7 +157,7 @@ exec "mako &"
 
 #output * background /home/keanu/wallpapers/open_face_girl_light.png fill
 #output * background /home/keanu/wallhaven/tea/wallhaven-v9wlj3.png fill
-exec "random_wallpaper.sh"
+exec "~/.dotfiles/scripts/set_wallpaper.sh"
 
 # Hide border if only 1 window is active
 # hide_edge_borders smart

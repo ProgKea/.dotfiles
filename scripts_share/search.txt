@@ -30,3 +30,4 @@ courseraWWW https://www.coursera.org/search?query=
 courseraDE https://de.coursera.org/search?query=
 mitopencourseware https://ocw.mit.edu/search/?q=
 openlearningMIT https://openlearning.mit.edu/search/google?keys=
+nixpkgs https://search.nixos.org/packages?query=

@@ -15,6 +15,7 @@ window {
     font-size: 28px;
     color: @fg;
     background-color: @bg2;
+    caret-color: @fg;
 }
 
 #inner-box {

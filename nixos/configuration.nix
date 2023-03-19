@@ -63,9 +63,12 @@
         i3status
         foot
         wofi
-        emacs
+        emacs-gtk
+        brightnessctl
         git
         tmux
+        alsa-utils
+        wl-clipboard
     ];
   };
 
