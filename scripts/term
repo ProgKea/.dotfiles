@@ -1,0 +1,6 @@
+#!/bin/sh
+if [ -z $1 ]; then
+    $(cat $HOME/.local/share/terminal_emulator)
+    exit 0
+fi
+echo $1 > $HOME/.local/share/terminal_emulator

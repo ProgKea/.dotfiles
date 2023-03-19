@@ -1,0 +1,3 @@
+#!/bin/bash
+
+curl -F "file=@${1}" 0x0.st && notification.sh -t "Ready to share!" || notification -t "Something went wrong while uploading file"

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+mlterm --term=xterm-256color --varwidth=true --deffont="$TERM_FONT" --aa=true --alpha=230 --transbg=true --bg=#000000 --crbg=#ffffff --itfont=false --fontsize="$TERM_SIZE" $1
+# mlterm --term=xterm-256color --varwidth=true --deffont="$TERM_FONT" --aa=true --crbg=#ffffff --itfont=false --fontsize="$TERM_SIZE" $1
+# mlterm --term=xterm-256color --varwidth=true --deffont="$TERM_FONT" --aa=true --bg=#000000 --crbg=#ffffff --itfont=false --fontsize="$TERM_SIZE" $1

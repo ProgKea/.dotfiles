@@ -1,0 +1,28 @@
+#!/usr/bin/python3
+
+from pynput.keyboard import Key, Controller
+import subprocess
+import time
+
+keyboard = Controller()
+
+def type_word(word):
+    if isinstance(word, str):
+        for char in word:
+            keyboard.press(char)
+            keyboard.release(char)
+    else:
+        keyboard.press(word)
+        keyboard.release(word)
+
+keyboard.press(Key.ctrl)
+type_word("l")
+keyboard.release(Key.ctrl)
+
+time.sleep(0.1)
+
+keyboard.press(Key.ctrl)
+type_word("c")
+keyboard.release(Key.ctrl)
+
+subprocess.call(["rdv.sh"])

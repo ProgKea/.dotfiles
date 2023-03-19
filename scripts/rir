@@ -1,0 +1,16 @@
+#!/bin/sh
+# rir = run if run
+
+while getopts "p:c:" o
+do
+    case "${o}" in
+        p)
+            [ -n "$(pidof \"${OPTARG}\")" ] && running="false" || running="true"
+            ;;
+        c)
+            command="${OPTARG}"
+            ;;
+    esac
+done
+
+[ $running="true" ] && eval ${command}

@@ -1,0 +1,111 @@
+#!/usr/bin/python3
+
+from pynput.keyboard import Key, Controller
+import random
+import os
+import string
+import pyperclip
+import argparse
+
+keyboard = Controller()
+
+CONFIG_PATH = os.environ["HOME"]+"/.local/share/regipy/config"
+CONFIG_DIR = os.environ["HOME"]+"/.local/share/regipy/"
+
+def type_word(word):
+    if isinstance(word, str):
+        for char in word:
+            keyboard.press(char)
+            keyboard.release(char)
+    else:
+        keyboard.press(word)
+        keyboard.release(word)
+
+def write_config(length, iteration):
+    with open(CONFIG_PATH, "w") as config_file:
+        config_file.writelines([f"length: {length}\n", f"iteration: {iteration}\n"])
+        config_file.close()
+
+def gen_seq(length, seed) -> str:
+    random.seed(seed) # NOTE: The seed does not need to be of type int
+
+    rand_seq = ""
+
+    for i in range(int(out_len)):
+        rand_seq += string.ascii_lowercase[random.randrange(0, 26)]
+
+    return rand_seq
+
+def login(seq, enter):
+    email = seq+"@"+seq+".com"
+    # NOTE: this will erase the previous clipboard but i dont mind
+    pyperclip.copy(email)
+
+    # NOTE: for some reason alt_gr does not work with pynput but this works too
+    keyboard.press(Key.ctrl)
+    type_word("v")
+    keyboard.release(Key.ctrl)
+
+    type_word(Key.tab)
+    type_word(seq)
+
+    if enter:
+        type_word(Key.enter)
+
+def register(seq, enter):
+    email = seq+"@"+seq+".com"
+    # NOTE: this will erase the previous clipboard but i dont mind
+    pyperclip.copy(email)
+
+    type_word(seq)
+    type_word(Key.tab)
+
+    # NOTE: for some reason alt_gr does not work with pynput but this works too
+    keyboard.press(Key.ctrl)
+    type_word("v")
+    keyboard.release(Key.ctrl)
+
+    type_word(Key.tab)
+    type_word(seq)
+
+    if enter:
+        type_word(Key.enter)
+
+if __name__ == '__main__':
+    if not os.path.exists(CONFIG_DIR):
+        os.mkdir(CONFIG_DIR)
+    if not os.path.exists(CONFIG_PATH):
+        write_config(6, 0)
+
+    out_len = 0
+    seed = 0
+    with open(CONFIG_PATH, "r") as config_file:
+        for line in config_file.readlines():
+            line = line.strip()
+            if "length" in line:
+                out_len = line.split(":")[-1].strip()
+            if "iteration" in line:
+                seed = line.split(":")[-1].strip()
+
+        config_file.close()
+
+    parser = argparse.ArgumentParser(description="Register to a website blazingly fast")
+    parser.add_argument("-s", "--seed", type=str, help="Set the seed of the generated sequence")
+    parser.add_argument("-l", "--login", action=argparse.BooleanOptionalAction, help="Specify wether you want to login or not (only type email and password)")
+    parser.add_argument("-r", "--reach", type=int, help="Specify the length of the sequence")
+    parser.add_argument("-n", "--noenter", action=argparse.BooleanOptionalAction, help="Specify wether you want to press enter after inputting the email password and username")
+    args = parser.parse_args()
+
+    if args.seed != None:
+        seed = args.seed
+    if args.reach != None:
+        out_len = args.reach
+    seed = str(int(seed)+1)
+    if args.noenter == None:
+        args.noenter = False
+    if args.login:
+        login(gen_seq(out_len, seed), args.noenter)
+        exit(0)
+
+    register(gen_seq(out_len, seed), args.noenter)
+    write_config(out_len, int(seed))

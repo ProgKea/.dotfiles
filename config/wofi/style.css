@@ -1,0 +1,49 @@
+@define-color bg #181818;
+@define-color bg2 #282828;
+@define-color fg #e4e4ef;
+
+window {
+    font-family: Iosevka;
+    font-size: 18px;
+}
+
+#input {
+    border-radius: 0px;
+    border: 0px;
+    padding: 10px;
+    margin: 0px;
+    font-size: 28px;
+    color: @fg;
+    background-color: @bg2;
+}
+
+#inner-box {
+    margin: 0px;
+    color: @fg;
+    background-color: @bg;
+}
+
+#outer-box {
+    margin: 0px;
+    background-color: @bg;
+}
+
+#selected {
+    background-color: @bg2;
+}
+
+#entry {
+    padding: 0px;
+    margin: 0px;
+    background-color: @bg;
+}
+
+#scroll {
+    margin: 5px;
+    background-color: @bg;
+}
+
+#text {
+    margin: 0px;
+    padding: 2px 2px 2px 10px;
+}

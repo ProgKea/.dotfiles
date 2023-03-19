@@ -1,0 +1,17 @@
+#!/bin/sh
+
+if [ $1 ]; then
+  echo $1 > $HOME/.dotfiles/scripts_share/browser.txt
+  echo "Changed browser to $1"
+  exit 0
+fi
+# searchEngine=$(cat $HOME/.dotfiles/scripts_share/search.txt | awk '{print $1}' | dmenu -i -l 10 -p "Search Engine:")
+searchEngine=$(cat $HOME/.dotfiles/scripts_share/search.txt | awk '{print $1}' | wofi -id -p "Pick a search engine")
+url=$(cat $HOME/.dotfiles/scripts_share/search.txt | grep "$searchEngine " | awk '{print $2}' | head -n 1)
+if [ "$searchEngine" != "" ]; then
+  # searchTerm=$(: | dmenu -i -l 10 -p "$searchEngine:")
+  searchTerm=$(wofi -id -L 1 -p "Search query")
+fi
+if [ "$searchTerm" != "" ]; then
+  $(cat $HOME/.dotfiles/scripts_share/browser.txt) "$url$searchTerm"
+fi
