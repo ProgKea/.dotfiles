@@ -426,7 +426,8 @@
 (use-package gruber-darker-theme
   :config
   (load-theme 'gruber-darker t))
-(set-frame-font "Ubuntu Mono-19" nil t)
+;; (set-frame-font "Ubuntu Mono-19" nil t)
+(set-frame-font "Iosevka-20" nil t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
