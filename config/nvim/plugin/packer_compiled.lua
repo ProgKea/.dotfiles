@@ -130,16 +130,6 @@ _G.packer_plugins = {
     path = "/home/keanu/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
-  ["mason-lspconfig.nvim"] = {
-    loaded = true,
-    path = "/home/keanu/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
-    url = "https://github.com/williamboman/mason-lspconfig.nvim"
-  },
-  ["mason.nvim"] = {
-    loaded = true,
-    path = "/home/keanu/.local/share/nvim/site/pack/packer/start/mason.nvim",
-    url = "https://github.com/williamboman/mason.nvim"
-  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/keanu/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
@@ -175,11 +165,6 @@ _G.packer_plugins = {
     path = "/home/keanu/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["rose-pine"] = {
-    loaded = true,
-    path = "/home/keanu/.local/share/nvim/site/pack/packer/start/rose-pine",
-    url = "https://github.com/rose-pine/neovim"
-  },
   ["telescope-fzy-native.nvim"] = {
     loaded = true,
     path = "/home/keanu/.local/share/nvim/site/pack/packer/start/telescope-fzy-native.nvim",
@@ -189,11 +174,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/keanu/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ["zenburn.nvim"] = {
-    loaded = true,
-    path = "/home/keanu/.local/share/nvim/site/pack/packer/start/zenburn.nvim",
-    url = "https://github.com/phha/zenburn.nvim"
   }
 }
 

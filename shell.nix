@@ -1,4 +1,5 @@
 { pkgs ? import <nixpkgs> {} }:
-  pkgs.mkShell {
-    nativeBuildInputs = [ pkgs.stow ];
+
+pkgs.mkShell {
+  nativeBuildInputs = [ pkgs.stow ];
 }

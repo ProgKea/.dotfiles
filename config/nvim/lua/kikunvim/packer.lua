@@ -24,8 +24,8 @@ return require("packer").startup(function(use)
 
     -- I am not willing to trade performance for pretty code
     -- use("windwp/nvim-ts-autotag")
-    -- use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
-    -- use("nvim-treesitter/nvim-treesitter-context")
+    use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
+    use("nvim-treesitter/nvim-treesitter-context")
 
     use {
         'VonHeikemen/lsp-zero.nvim',
