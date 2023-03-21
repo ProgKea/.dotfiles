@@ -1,19 +1,10 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
     ];
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -89,9 +80,7 @@
     ubuntu_font_family
   ];
 
-  # Remove sound.enable or turn it off if you had it set previously, it seems to cause conflicts with pipewire
-  #sound.enable = false;
-
+  # Sound (Pipewire)
   # rtkit is optional but recommended
   security.rtkit.enable = true;
   services.pipewire = {

@@ -18,10 +18,6 @@ lsp.configure('lua_ls', {
     }
 })
 
-lsp.configure("rust_analyzer", {
-    cmd = { "ra-multiplex" },
-})
-
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
